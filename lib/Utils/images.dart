@@ -4,4 +4,5 @@ class Images {
   static const String root = "assets/images/";
 
   static const splashImage = root + "match_the_card_splash.png";
+  static const googleIcon = root + "google.png";
 }

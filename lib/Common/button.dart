@@ -5,12 +5,14 @@ class CustomeButton extends StatelessWidget {
   final String? text;
   final EdgeInsetsGeometry? btnMargin;
   final double? btnHeight;
+  final String? leadingImage;
 
   const CustomeButton({
     super.key,
     this.onPressed,
     this.text,
     this.btnHeight,
+    this.leadingImage,
   }) : btnMargin = const EdgeInsets.symmetric(horizontal: 20);
 
   @override
@@ -21,8 +23,26 @@ class CustomeButton extends StatelessWidget {
       margin: btnMargin,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: text != null ? Text(text!) : null,
+        child: btnChild(),
       ),
+    );
+  }
+
+  btnChild() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        if (leadingImage != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
+            child: Image.asset(leadingImage!),
+          ),
+        if (text != null)
+          Text(
+            text!,
+            style: const TextStyle(fontSize: 18),
+          ),
+      ],
     );
   }
 }

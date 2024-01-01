@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:find_the_match/Utils/exports.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +29,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Image.asset(
           Images.splashImage,
           fit: BoxFit.fitHeight,
-        ),
+        ).animate().scale(
+              begin: const Offset(1, 1),
+              end: const Offset(1.1, 1.1),
+              duration: 2.seconds,
+            ),
       ),
     );
   }

@@ -1,8 +1,14 @@
 import 'package:find_the_match/Utils/exports.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +26,9 @@ class Dashboard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            CustomeButton(onPressed: () {}, text: "Join Game"),
+            CustomeButton(onPressed: () {}, text: "Join Game").animate(effects: AnimationEffects.transitionIn),
             10.hh,
-            CustomeButton(onPressed: () {}, text: "Create New Game"),
+            CustomeButton(onPressed: () {}, text: "Create New Game").animate(effects: AnimationEffects.transitionIn),
             40.hh,
           ],
         ),

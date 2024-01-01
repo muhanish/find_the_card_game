@@ -1,8 +1,6 @@
 import 'dart:async';
 
-import 'package:find_the_match/Utils/images.dart';
-import 'package:find_the_match/Utils/routes.dart';
-import 'package:flutter/material.dart';
+import 'package:find_the_match/Utils/exports.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

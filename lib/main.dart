@@ -1,5 +1,7 @@
 import 'package:find_the_match/Features/Auth/screen/splash.dart';
+import 'package:find_the_match/Utils/exports.dart';
 import 'package:find_the_match/Utils/routes.dart';
+import 'package:find_the_match/Utils/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,10 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Match the Card',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: darkTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.splash,
       onGenerateRoute: RouteGenerator.generateRoute,

@@ -1,3 +1,4 @@
+import 'package:find_the_match/Services/firebase_auth_services.dart';
 import 'package:find_the_match/Utils/exports.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -45,7 +46,12 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void onGoogleSignIn() {
-    Navigator.pushNamed(context, Routes.dashboard);
+  Future<void> onGoogleSignIn() async {
+    await FirebaseServices.googleLogin(context: context).then((user) {
+      if (user != null) {
+        print("GOOGLE USER: ${user.credential?.accessToken}");
+        Navigator.pushNamed(context, Routes.dashboard);
+      }
+    });
   }
 }

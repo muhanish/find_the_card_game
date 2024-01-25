@@ -30,14 +30,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.2
-  flutter_animate: ^4.3.0
-  cloud_firestore: ^4.13.6
+  
+  # statemanagement
   riverpod: ^2.4.9
+  flutter_riverpod: ^2.4.9
+
+  #firebase
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
   google_sign_in: ^6.2.1
+  
+  #other
+  flutter_animate: ^4.3.0
+  carousel_slider: ^4.2.1
+  palette_generator: ^0.3.3+3
+
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:

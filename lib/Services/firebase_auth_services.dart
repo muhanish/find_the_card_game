@@ -12,20 +12,30 @@ class FirebaseServices {
     return signInWithGoogle().then((googleAuth) async {
       // if user dismissed the OAuth dialog
       if (googleAuth == null) {
+        print("null googleAuth ");
+
         // LoadingScreen.instance().hide();
         // loaderController.updateGoogleLoginLoader(false);
         return null;
       }
-
-      /// Create a new credential
-      final OAuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      // isLoading = true;
-      UserCredential user = await FirebaseAuth.instance.signInWithCredential(credential);
-      // isLoading = false;
-      return user;
+      try {
+        /// Create a new credential
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        // isLoading = true;
+        UserCredential? user;
+        user = await FirebaseAuth.instance.signInWithCredential(credential);
+        // isLoading = false;
+        return user;
+      } catch (e, s) {
+        debugPrint("EX:signInWithGoogle: $e \n $s ");
+      }
+      return null;
+    }).onError((error, stackTrace) {
+      debugPrint("EX:signInWithGoogle:onError: $error \n $stackTrace ");
+      return null;
     });
   }
 
